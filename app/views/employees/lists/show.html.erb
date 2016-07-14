@@ -1,0 +1,11 @@
+<h1><%= @list.name %></h1>
+<div class="meta">Created by <%= @list.employee.name %></div>
+<%= link_to "edit", edit_employees_list_path(@list) %>
+<ul class="tasks">
+  <% @list.incomplete_tasks.each do |task| %>
+    <li><%= check_box_tag :completed?, false %> <%= task.name %></li>
+  <% end %>
+</ul>
+
+<h1>Edit List</h1>
+<%= render 'task_item' %>
